@@ -12,3 +12,5 @@
 */
 
 Route::get('/','PagesController@home');
+
+Route::resource('/archives','ArchivesController');

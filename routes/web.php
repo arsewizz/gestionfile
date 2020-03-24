@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,10 @@
 |
 */
 
-Route::get('/','PagesController@home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::resource('/archives','ArchivesController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link rel="stylesheet" href="{{asset('css/app.css')}}" >
         <!-- Styles -->
         <style>
             html, body {
@@ -18,7 +18,9 @@
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
-            }
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+               }
 
             .full-height {
                 height: 100vh;
@@ -63,7 +65,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="home_page">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Bienvenu(e) sur S.scillia
+                    Bienvenu(e) sur S.scilliArchive
                 </div>
             </div>
         </div>

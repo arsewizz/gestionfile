@@ -18,6 +18,7 @@ class ArchivesController extends Controller
         return view('archives.index')->with('archives', $archives);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -36,7 +37,7 @@ class ArchivesController extends Controller
      */
     public function store(Request $request)
     {
-        $archives = new Archives;
+        $archives = new Archive;
         $archives->intitule_archive = $request->input('intitule_archive');
         $archives->traitement = $request->input('traitement');
         $archives->fichier = $request->input('fichier');

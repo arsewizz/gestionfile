@@ -26,9 +26,17 @@
                                 </li>
                             @endif
                         @else
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/archives">Archives</a>
-                                </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown1" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Archives <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown1">
+                                    <a class="dropdown-item" href="/archives">
+                                        Ajouter
+                                    </a>
+                                </div>
+                            </li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

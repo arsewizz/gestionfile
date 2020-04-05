@@ -5,7 +5,34 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h3>Ajouter votre achive</h3>
+                <h3 style="text-align:center;">Ajouter votre achive</h3>
+                {!!Form::open(['action'=>'ArchivesController@store'])!!}
+
+                    <div class="form-group">
+                       {{Form::label('Nom archives') }}
+                       {{Form::text('intitule_archive','',['class'=>'form-control']) }}
+                    </div>
+
+                    <div class="form-group">
+                       {{Form::label('Traitement') }}
+                       {{Form::text('traitement','',['class'=>'form-control']) }}
+                    </div>
+
+                    <div class="form-group">
+                       {{Form::label('Fichier') }}
+                       {{Form::text('fichier','',['class'=>'form-control']) }}
+                    </div>
+
+                    <div class="form-group">
+                       {{Form::label('Type') }}
+                       {{Form::text('type','',['class'=>'form-control']) }}
+                    </div>
+
+                    <div class="button">
+                        {{Form::submit('Enregistrer',['class'=>'btn btn-block btn-primary'])}}
+                    </div>
+
+                {!!Form::close()!!}
             </div>
             {{--
                 <h2>Ajouter votre archives</h2>

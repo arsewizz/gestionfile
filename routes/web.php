@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/recherche', 'SearchController@search');
+
 Route::resource('/archives','ArchivesController');
 
 Auth::routes();

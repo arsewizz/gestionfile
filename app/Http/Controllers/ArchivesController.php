@@ -43,7 +43,7 @@ class ArchivesController extends Controller
         $archives->fichier = $request->input('fichier');
         $archives->type = $request->input('type');
         $archives->save();
-        return redirect('/archives');
+        return redirect('/home');
     }
 
     /**

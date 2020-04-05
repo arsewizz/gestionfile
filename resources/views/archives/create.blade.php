@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h3 style="text-align:center;">Ajouter votre achive</h3>
-                {!!Form::open(['action'=>'ArchivesController@store'])!!}
+                {!!Form::open(['action'=>'ArchivesController@store', 'files' => true])!!}
 
                     <div class="form-group">
                        {{Form::label('Nom archives') }}
@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                        {{Form::label('Fichier') }}
-                       {{Form::text('fichier','',['class'=>'form-control']) }}
+                       {{Form::file('fichier') }}
                     </div>
 
                     <div class="form-group">

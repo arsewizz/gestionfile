@@ -24,3 +24,4 @@ Route::resource('/archives','ArchivesController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/file_detail/{id}', 'HomeController@file_detail');

@@ -27,4 +27,10 @@ class HomeController extends Controller
         $archives = Archive::all();
         return view('home')->with('archives', $archives);
     }
+
+    public function file_detail(Request $id)
+    {
+        $archives = Archive::find($id);
+        return view('detail')->with('archives', $archives);
+    }
 }

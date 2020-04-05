@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Archive;
+use Illuminate\Support\Facades\Storage;
 
 class ArchivesController extends Controller
 {
@@ -37,10 +38,26 @@ class ArchivesController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->hasFile('fichier')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('fichier')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('fichier')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('fichier')->storeAs('public/fichier', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
         $archives = new Archive;
         $archives->intitule_archive = $request->input('intitule_archive');
         $archives->traitement = $request->input('traitement');
-        $archives->fichier = $request->input('fichier');
+        $archives->fichier = $fileNameToStore;
+       // $archives->fichier = $request->input('fichier');
         $archives->type = $request->input('type');
         $archives->save();
         return redirect('/home');
@@ -88,6 +105,11 @@ class ArchivesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $archives = Archive::find($id);
+        if($archives->fichier != 'noimage.jpg'){
+            Storage::delete('public/fichier/'.$archives->fichier);
+        }
+        $archives->delete();
+        return redirect('/home');
     }
 }

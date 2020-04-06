@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','')
 @include('layouts._authbar')
 @section('content')
 <div class="container">
@@ -19,10 +20,12 @@
                     <div class="card">
                         <div class="card-header">
                             <p>
-                                <a href="/file_detail/{{$archive->id}}">{{$archive->intitule_archive}}</a>
+                                <a href="/file_detail/{{$archive->id}}">{{$archive->intitule_archive}} : Ajouté ({{$archive->created_at}})</a>
                             </p>
                         </div>
-                        <div class="card-content"></div>
+                        <div class="card-content">
+
+                        </div>
                         <div class="card-footer">
                     {{Form::open(['action'=>['ArchivesController@destroy',$archive->id]])}}
                         {{Form::hidden('_method','DELETE')}}
